@@ -12,7 +12,6 @@ router.use((req, res, next) => {
   )
   next()
 })
-/* eslint-disable consistent-return, no-debugger, no-console */
 async function getSubscriber(req, res, next) {
   console.log('get subscriber called')
   let subscriber
