@@ -1,0 +1,28 @@
+@hostname = localhost:3000
+@protocol = http
+@baseURL = {{protocol}}://{{hostname}}
+
+GET {{baseURL}}/subscribers HTTP/1.1
+###
+GET {{baseURL}}/subscribers/5f2d6f9e9322a27b0dc4d5fd HTTP/1.1
+###
+# @name login
+POST {{baseURL}}/subscribers/ HTTP/1.1
+content-type: application/json
+
+{
+    "name": "sarmin vai",
+    "subscribedChannel": "john channel"
+}
+
+###
+PATCH {{baseURL}}/subscribers/5f2d6f9e9322a27b0dc4d5fd HTTP/1.1
+content-type: application/json
+
+{
+    "name": "sample2",
+    "subscribedChannel": "john channel"
+}
+
+###
+DELETE {{baseURL}}/subscribers/5f2d70519322a27b0dc4d5ff HTTP/1.1
