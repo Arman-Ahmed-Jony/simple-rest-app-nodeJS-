@@ -32,7 +32,7 @@ POST {{baseURL}}/user
 Content-Type: application/json
 
 {
-"name": "arman saheb",
-"email": "arman4@gmail.com",
+"name": "armafe",
+"email": "arman5@gmail.com",
 "password": "123456"
 }
