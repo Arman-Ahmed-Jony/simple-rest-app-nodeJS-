@@ -11,7 +11,7 @@ POST {{baseURL}}/subscribers/ HTTP/1.1
 content-type: application/json
 
 {
-    "name": "sarmin vai",
+    "name": "tester",
     "subscribedChannel": "john channel"
 }
 
@@ -26,3 +26,13 @@ content-type: application/json
 
 ###
 DELETE {{baseURL}}/subscribers/5f2d70519322a27b0dc4d5ff HTTP/1.1
+
+###
+POST {{baseURL}}/user
+Content-Type: application/json
+
+{
+"name": "arman saheb",
+"email": "arman4@gmail.com",
+"password": "123456"
+}
