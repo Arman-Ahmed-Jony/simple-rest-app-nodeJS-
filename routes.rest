@@ -28,12 +28,12 @@ content-type: application/json
 DELETE {{baseURL}}/subscribers/5f2d70519322a27b0dc4d5ff HTTP/1.1
 
 ###
-POST {{baseURL}}/user
+POST {{baseURL}}/user/register
 Content-Type: application/json
 
 {
     "name": "armafe",
-    "email": "test6@gmail.com",
+    "email": "test4121@gmail.com",
     "password": "abcdefg"
 }
 

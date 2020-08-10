@@ -1,11 +1,16 @@
 const bcrypt = require('bcrypt')
 const express = require('express')
+const config = require('config')
+const jwt = require('jsonwebtoken')
 const _ = require('lodash')
 const { User, validate } = require('../models/user')
 
 const router = express.Router()
 
-router.post('/', async (req, res) => {
+/**
+ * register a user
+ */
+router.post('/register', async (req, res) => {
   try {
     validate(req.body)
 
@@ -23,7 +28,11 @@ router.post('/', async (req, res) => {
     user.password = await bcrypt.hash(user.password, salt)
 
     const newUser = await user.save()
-    res.status(201).json(_.pick(newUser, ['_id', 'name', 'email']))
+    const token = user.generateToken()
+    res
+      .status(201)
+      .header('x-auth-token', token)
+      .json(_.pick(newUser, ['_id', 'name', 'email']))
   } catch (error) {
     res.status(400).json({ message: error })
   }

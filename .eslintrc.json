@@ -12,7 +12,7 @@
     "prettier/prettier": "error",
     "consistent-return": "off",
     "no-console": "off",
-    "no-underscore-dangle": "warn"
+    "no-underscore-dangle": "off"
   },
   "plugins": ["prettier"]
 }
