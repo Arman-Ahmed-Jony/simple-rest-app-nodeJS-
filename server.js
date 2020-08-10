@@ -1,8 +1,12 @@
 require('dotenv').config() // this line adds .env power :p
-
+const config = require('config')
 const express = require('express')
 const mongoose = require('mongoose')
 
+if (!config.get('jwtPrivateKey')) {
+  console.log('FATAL: Json web token is not defined ')
+  process.exit(1)
+}
 const app = express()
 
 mongoose.connect(process.env.DATABASE_URL, {
@@ -19,7 +23,9 @@ app.use(express.json())
 
 const subscribersRouter = require('./routes/subscribers')
 const userRouter = require('./routes/users')
+const authRouter = require('./routes/auth')
 
+app.use('/auth', authRouter)
 app.use('/user', userRouter)
 app.use('/subscribers', subscribersRouter)
 app.listen(3000, () => console.log('server created'))

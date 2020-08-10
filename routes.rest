@@ -32,7 +32,16 @@ POST {{baseURL}}/user
 Content-Type: application/json
 
 {
-"name": "armafe",
-"email": "arman5@gmail.com",
-"password": "123456"
+    "name": "armafe",
+    "email": "test6@gmail.com",
+    "password": "abcdefg"
+}
+
+###
+POST {{baseURL}}/auth
+Content-Type: application/json
+
+{
+    "email": "test6@gmail.com",
+    "password": "abcdefg"
 }
