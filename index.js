@@ -1,4 +1,5 @@
 require('dotenv').config() // this line adds .env power :p
+const helmet = require('helmet')
 const config = require('config')
 const express = require('express')
 const mongoose = require('mongoose')
@@ -20,7 +21,7 @@ db.on('error', (error) => console.error(error))
 db.once('open', () => console.log('connected to database'))
 
 app.use(express.json())
-
+app.use(helmet())
 const subscribersRouter = require('./routes/subscribers')
 const userRouter = require('./routes/users')
 const authRouter = require('./routes/auth')
