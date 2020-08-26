@@ -3,6 +3,7 @@ const express = require('express')
 const router = express.Router()
 const cors = require('../middleware/cors')
 const Subscriber = require('../models/subscriber')
+const authorization = require('../middleware/auth')
 
 router.use(cors)
 
@@ -26,7 +27,7 @@ function auth(req, res, next) {
   next()
 }
 //  getting all subscribers
-router.get('/', auth, async (req, res) => {
+router.get('/', authorization, async (req, res) => {
   try {
     const subscribers = await Subscriber.find()
     res.json(subscribers)
