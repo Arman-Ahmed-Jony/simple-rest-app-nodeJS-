@@ -3,6 +3,8 @@
 @baseURL = {{protocol}}://{{hostname}}
 
 GET {{baseURL}}/subscribers HTTP/1.1
+x-auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1OTcwODE0MzV9.HR7M-bCgsGwJJazEhQhp2tfgfgdgS4BydLcj_ds
+
 ###
 GET {{baseURL}}/subscribers/5f2d6f9e9322a27b0dc4d5fd HTTP/1.1
 ###
