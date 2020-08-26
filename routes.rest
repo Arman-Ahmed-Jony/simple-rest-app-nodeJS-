@@ -1,9 +1,10 @@
-@hostname = localhost:3000
+@hostname = localhost:4000
 @protocol = http
 @baseURL = {{protocol}}://{{hostname}}
 
+@authToken = {{login.response.headers.x-auth-token}}
 GET {{baseURL}}/subscribers HTTP/1.1
-x-auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1OTcxMjU5ODd9.K2mp-rVuO6ibzFa5nCuYubYNnw1K3GEaB5rP_VIdxJk
+x-auth-token: {{authToken}}
 
 ###
 GET {{baseURL}}/subscribers/5f2d6f9e9322a27b0dc4d5fd HTTP/1.1
@@ -35,15 +36,16 @@ Content-Type: application/json
 
 {
     "name": "armafe",
-    "email": "test4121@gmail.com",
+    "email": "testme2@gmail.com",
     "password": "abcdefg"
 }
 
 ###
+# @name login
 POST {{baseURL}}/auth
 Content-Type: application/json
 
 {
-    "email": "test6@gmail.com",
+    "email": "testme@gmail.com",
     "password": "abcdefg"
 }

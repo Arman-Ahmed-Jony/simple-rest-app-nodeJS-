@@ -1,10 +1,9 @@
 require('dotenv').config() // this line adds .env power :p
 const helmet = require('helmet')
-const config = require('config')
 const express = require('express')
 const mongoose = require('mongoose')
 
-if (!config.get('jwtPrivateKey')) {
+if (!process.env.jwtPrivateKey) {
   console.log('FATAL: Json web token is not defined ')
   process.exit(1)
 }
@@ -29,4 +28,4 @@ const authRouter = require('./routes/auth')
 app.use('/auth', authRouter)
 app.use('/user', userRouter)
 app.use('/subscribers', subscribersRouter)
-app.listen(3000, () => console.log('server created'))
+app.listen(4000, () => console.log('server created'))

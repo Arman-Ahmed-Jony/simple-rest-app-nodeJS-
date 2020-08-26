@@ -8,7 +8,6 @@ const authorization = require('../middleware/auth')
 router.use(cors)
 
 async function getSubscriber(req, res, next) {
-  console.log('get subscriber called')
   let subscriber
   try {
     subscriber = await Subscriber.findById(req.params.id)
