@@ -1,10 +1,10 @@
 {
-  "name": "youtube_app",
+  "name": "up_app",
   "version": "1.0.0",
   "description": "this is a node js app ",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon index.js"
+    "start": "nodemon index.js"
   },
   "author": "arman",
   "license": "ISC",
@@ -13,6 +13,7 @@
     "config": "^3.3.1",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
+    "helmet": "^4.1.0",
     "joi": "^17.2.0",
     "jsonwebtoken": "^8.5.1",
     "lodash": "^4.17.19",
