@@ -22,9 +22,6 @@ db.once('open', () => console.log('[application] connected to database'))
 
 app.use(express.json())
 app.use(helmet())
-// const subscribersRouter = require('./routes/subscribers')
-// const userRouter = require('./routes/users')
-// const authRouter = require('./routes/auth')
 
 setRoutes(app)
 app.listen(4000, () => console.log('[application] server created...'))
