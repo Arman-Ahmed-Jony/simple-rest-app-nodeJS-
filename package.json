@@ -17,7 +17,8 @@
     "joi": "^17.2.0",
     "jsonwebtoken": "^8.5.1",
     "lodash": "^4.17.19",
-    "mongoose": "^5.9.28"
+    "mongoose": "^5.9.28",
+    "pug": "^3.0.2"
   },
   "devDependencies": {
     "eslint": "^7.6.0",

@@ -1,6 +1,7 @@
 const authRoute = require('./auth')
 const subscribesRoute = require('./subscribers')
 const usersRoute = require('./users')
+const staticPages = require('./StaticPages')
 
 const routes = [
   {
@@ -8,11 +9,17 @@ const routes = [
     component: authRoute
   },
   { path: '/subscribers', component: subscribesRoute },
-  { path: '/users', component: usersRoute }
+  { path: '/users', component: usersRoute },
+  {
+    path: '/',
+    component: staticPages
+  }
 ]
 
 module.exports = function setRoutes(app) {
   routes.forEach((route) => {
-    app.use(route.path, route.component)
+    if (route.path && route.component) {
+      app.use(route.path, route.component)
+    }
   })
 }

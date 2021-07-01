@@ -2,6 +2,7 @@ require('dotenv').config() // this line adds .env power :p
 const helmet = require('helmet')
 const express = require('express')
 const mongoose = require('mongoose')
+const path = require('path')
 const setRoutes = require('./routes')
 
 if (!process.env.jwtPrivateKey) {
@@ -24,4 +25,8 @@ app.use(express.json())
 app.use(helmet())
 
 setRoutes(app)
-app.listen(4000, () => console.log('[application] server created...'))
+app.listen(4000, () =>
+  console.log(`[application] server created in port ${4000}... `)
+)
+app.use(express.static(path.join(__dirname, 'static')))
+app.set('view engine', 'pug')
