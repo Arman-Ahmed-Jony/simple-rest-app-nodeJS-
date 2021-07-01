@@ -2,6 +2,7 @@ require('dotenv').config() // this line adds .env power :p
 const helmet = require('helmet')
 const express = require('express')
 const mongoose = require('mongoose')
+const setRoutes = require('./routes')
 
 if (!process.env.jwtPrivateKey) {
   console.log('FATAL: Json web token is not defined ')
@@ -16,16 +17,14 @@ mongoose.connect(process.env.DATABASE_URL, {
 })
 
 const db = mongoose.connection
-db.on('error', (error) => console.error(error))
-db.once('open', () => console.log('connected to database'))
+db.on('error', (error) => console.error(`[application] ${error}`))
+db.once('open', () => console.log('[application] connected to database'))
 
 app.use(express.json())
 app.use(helmet())
-const subscribersRouter = require('./routes/subscribers')
-const userRouter = require('./routes/users')
-const authRouter = require('./routes/auth')
+// const subscribersRouter = require('./routes/subscribers')
+// const userRouter = require('./routes/users')
+// const authRouter = require('./routes/auth')
 
-app.use('/auth', authRouter)
-app.use('/user', userRouter)
-app.use('/subscribers', subscribersRouter)
-app.listen(4000, () => console.log('server created'))
+setRoutes(app)
+app.listen(4000, () => console.log('[application] server created...'))

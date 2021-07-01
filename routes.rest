@@ -31,7 +31,7 @@ content-type: application/json
 DELETE {{baseURL}}/subscribers/5f2d70519322a27b0dc4d5ff HTTP/1.1
 
 ###
-POST {{baseURL}}/user/register
+POST {{baseURL}}/users/register
 Content-Type: application/json
 
 {
