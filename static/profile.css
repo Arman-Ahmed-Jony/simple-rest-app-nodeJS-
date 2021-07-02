@@ -1,0 +1,113 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto Mono', monospace;
+}
+.title {
+  display: flex;
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
+}
+body {
+  position: relative;
+  height: 100vh;
+}
+.outer {
+  width: 500px;
+  height: 500px;
+  position: absolute;
+  background-image: url('./assets/socket.png');
+  top: 50%;
+  left: 50%;
+  animation: animate-outer 3s infinite;
+  transform: translate(-50%, -50%);
+}
+.left-square {
+  background-color: #000000;
+  width: 45px;
+  height: 45px;
+  position: absolute;
+  right: 50px;
+  bottom: 60px;
+  animation: animate-left 1s infinite;
+  animation-timing-function: linear;
+  box-shadow: 0px -1px 23px 9px rgba(0, 0, 0, 0.25);
+  -webkit-box-shadow: 0px -1px 23px 9px rgba(0, 0, 0, 0.25);
+  -moz-box-shadow: 0px -1px 23px 9px rgba(0, 0, 0, 0.25);
+}
+.right-square {
+  background-color: #000000;
+  width: 150px;
+  position: absolute;
+  height: 150px;
+  transform: rotate(45deg);
+  animation: animate-right 5s infinite;
+  animation-timing-function: linear;
+  text-align: center;
+  border-radius: 50%;
+  overflow: hidden;
+  box-shadow: 0px -1px 23px 9px rgba(0, 0, 0, 0.25);
+  -webkit-box-shadow: 0px -1px 23px 9px rgba(0, 0, 0, 0.25);
+  -moz-box-shadow: 0px -1px 23px 9px rgba(0, 0, 0, 0.25);
+}
+.N {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  font-size: 400px;
+  color: rgb(2, 102, 60);
+  transform: translate(-50%, -52%);
+}
+
+.btn-socket {
+  background-color: aliceblue;
+  color: #000000;
+  outline: 0;
+  border: 0;
+  padding: 10px;
+  cursor: pointer;
+  font-size: large;
+}
+.btn-socket:hover {
+  background-color: rgb(210, 234, 255);
+}
+
+main {
+  padding: 10px;
+}
+
+@keyframes animate-right {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes animate-left {
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(180deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@keyframes animate-outer {
+  0% {
+    /* transform: translate(-50%, -50%); */
+  }
+  50% {
+    transform: translate(-55%, -55%);
+  }
+  100% {
+    transform: translate(-50%, -50%);
+  }
+}

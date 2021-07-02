@@ -7,8 +7,8 @@ router.get('', (req, res) => {
   res.render('../static', { title: 'Hey', message: 'Hello there!' })
 })
 
-router.get('/test', (req, res) => {
-  res.sendFile(path.resolve('./static/test.html'))
+router.get('/profile', (req, res) => {
+  res.sendFile(path.resolve('./static/profile.html'))
 })
 
 module.exports = router
