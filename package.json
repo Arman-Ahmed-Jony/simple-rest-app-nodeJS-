@@ -11,6 +11,7 @@
   "dependencies": {
     "bcrypt": "^5.0.0",
     "config": "^3.3.1",
+    "cors": "^2.8.5",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "helmet": "^4.1.0",
@@ -18,7 +19,8 @@
     "jsonwebtoken": "^8.5.1",
     "lodash": "^4.17.19",
     "mongoose": "^5.9.28",
-    "pug": "^3.0.2"
+    "pug": "^3.0.2",
+    "socket.io": "^4.1.2"
   },
   "devDependencies": {
     "eslint": "^7.6.0",

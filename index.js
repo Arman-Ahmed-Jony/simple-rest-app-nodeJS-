@@ -3,13 +3,24 @@ const helmet = require('helmet')
 const express = require('express')
 const mongoose = require('mongoose')
 const path = require('path')
-const setRoutes = require('./routes')
+const http = require('http')
+
+const app = express()
+const server = http.createServer(app)
+const { Server } = require('socket.io')
+
+const io = new Server(server, {
+  cors: { origin: '*', methods: ['GET', 'POST'] }
+})
+
+io.on('connection', (socket) => {
+  console.log('a user connected', socket)
+})
 
 if (!process.env.jwtPrivateKey) {
   console.log('FATAL: Json web token is not defined ')
   process.exit(1)
 }
-const app = express()
 
 mongoose.connect(process.env.DATABASE_URL, {
   useNewUrlParser: true,
@@ -23,10 +34,11 @@ db.once('open', () => console.log('[application] connected to database'))
 
 app.use(express.json())
 app.use(helmet())
-
-setRoutes(app)
-app.listen(4000, () =>
-  console.log(`[application] server created in port ${4000}... `)
-)
 app.use(express.static(path.join(__dirname, 'static')))
 app.set('view engine', 'pug')
+
+server.listen(4000, () =>
+  console.log(`[application] server created in port ${4000}... `)
+)
+
+require('./routes')(app)
