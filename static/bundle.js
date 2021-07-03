@@ -2205,8 +2205,6 @@ process.chdir = function (dir) {
 process.umask = function() { return 0; };
 
 },{}],5:[function(require,module,exports){
-// new WebSocket(`ws://${window.location.hostname}:4000`)
-
 const { io } = require('socket.io-client')
 
 const socket = io('ws://localhost:4000', { transport: ['websocket'] })

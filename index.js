@@ -41,4 +41,7 @@ server.listen(4000, () =>
   console.log(`[application] server created in port ${4000}... `)
 )
 
+/**
+ * providing routes to the application
+ */
 require('./routes')(app)
