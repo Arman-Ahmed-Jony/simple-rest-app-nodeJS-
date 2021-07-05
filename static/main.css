@@ -23,18 +23,32 @@ footer {
 nav {
   top: 0px;
 }
+.send-section {
+  display: flex;
+  width: 100%;
+}
 footer {
   bottom: 0px;
-  display: flex;
 }
-footer input,
-footer button {
+.send-section input,
+.send-section button,
+.input-room,
+.btn-join {
   font-size: large;
   padding: 10px;
 }
-footer input {
+.send-section input,
+.input-room {
   flex: 1 1 auto;
 }
-footer button {
+.send-section button,
+.btn-join {
   flex: 0 0 10px;
+}
+.join-room-section {
+  display: flex;
+}
+.input-room {
+}
+.btn-join {
 }

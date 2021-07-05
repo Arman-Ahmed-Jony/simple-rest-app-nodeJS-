@@ -18,10 +18,6 @@ const io = new Server(server, {
   cors: { origin: '*', methods: ['GET', 'POST'] }
 })
 
-io.on('connection', (socket) => {
-  console.log('a user connected', socket)
-})
-
 /**
  * jwt private key test, wheter it's available in env
  */
@@ -42,6 +38,10 @@ mongoose.connect(process.env.DATABASE_URL, {
 const db = mongoose.connection
 db.on('error', (error) => console.error(`[application] ${error}`))
 db.once('open', () => console.log('[application] connected to database'))
+
+io.on('connection', (socket) => {
+  console.log('a user connected', socket)
+})
 
 /**
  * providing routes to the application
