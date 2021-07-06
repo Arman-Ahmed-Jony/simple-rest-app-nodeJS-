@@ -40,13 +40,18 @@ db.on('error', (error) => console.error(`[application] ${error}`))
 db.once('open', () => console.log('[application] connected to database'))
 
 io.on('connection', (socket) => {
-  console.log('a user connected', socket)
+  console.log(`new socket handshak [socket id]:${socket.id}`)
+  socket.emit('custom-event', 'greetings')
+  socket.on('test', (message) => {
+    console.log('called')
+    console.log(message)
+  })
 })
 
 /**
  * providing routes to the application
  */
-require('./routes')(app)
+require('./serviceProvider/routes')(app)
 
 server.listen(4000, () =>
   console.log(`[application] server created in port ${4000}... `)

@@ -2208,7 +2208,10 @@ process.umask = function() { return 0; };
 const { io } = require('socket.io-client')
 
 const socket = io('ws://localhost:4000', { transport: ['websocket'] })
-
+socket.on('custom-event', (message) => {
+  console.log(message)
+  socket.emit('test', 'greetings accepted. lets shake hand')
+})
 window.onload = () => {
   const sendBtnElm = document.querySelector('.btn-send')
   const messageInputElm = document.querySelector('.input-message')

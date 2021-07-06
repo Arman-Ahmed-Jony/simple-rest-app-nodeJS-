@@ -1,9 +1,9 @@
 const express = require('express')
 
 const router = express.Router()
-const cors = require('../middleware/cors')
-const Subscriber = require('../models/subscriber')
-const authorization = require('../middleware/auth')
+const cors = require('../../middleware/cors')
+const Subscriber = require('../../models/subscriber')
+const authorization = require('../../middleware/auth')
 
 router.use(cors)
 

@@ -2,7 +2,7 @@ const bcrypt = require('bcrypt')
 const _ = require('lodash')
 const Joi = require('joi')
 const express = require('express')
-const { User } = require('../models/user')
+const { User } = require('../../models/user')
 
 const router = express.Router()
 
