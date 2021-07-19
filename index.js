@@ -53,6 +53,6 @@ io.on('connection', (socket) => {
  */
 require('./serviceProvider/routes')(app)
 
-server.listen(4000, () =>
-  console.log(`[application] server created in port ${4000}... `)
+server.listen(process.env.PORT || 5000, () =>
+  console.log(`[application] server created in port ${process.env.PORT}... `)
 )
