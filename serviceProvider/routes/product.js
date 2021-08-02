@@ -12,6 +12,18 @@ router.get('/', (req, res) => {
     .catch((err) => res.status(500).json(err))
 })
 
+router.get('/:id', (req, res) => {
+  db.models.product
+    .findOne({
+      where: {
+        id: req.params.id
+      },
+      attributes: ['name', 'description', 'createdAt']
+    })
+    .then((response) => res.json(response))
+    .catch((err) => res.status(500).json(err))
+})
+
 router.post('/', (req, res) => {
   db.models.product
     .create({
