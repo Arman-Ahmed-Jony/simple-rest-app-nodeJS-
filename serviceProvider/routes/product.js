@@ -27,11 +27,27 @@ router.post('/', (req, res) => {
 })
 
 router.delete('/:id', (req, res) => {
-  console.log(req.params.id)
   db.models.product
     .destroy({
       where: { id: req.params.id }
     })
+    .then((response) => res.json(response))
+    .catch((err) => res.status(500).json(err))
+})
+
+router.patch('/:id', (req, res) => {
+  db.models.product
+    .update(
+      {
+        name: req.body.name,
+        description: req.body.description
+      },
+      {
+        where: {
+          id: req.params.id
+        }
+      }
+    )
     .then((response) => res.json(response))
     .catch((err) => res.status(500).json(err))
 })

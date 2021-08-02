@@ -61,3 +61,11 @@ Content-Type: application/json
 }
 ###
 DELETE {{baseURL}}/products/2 HTTP/1.1
+###
+PATCH {{baseURL}}/products/1
+Content-Type: application/json
+
+{
+    "name": "changed to other name ",
+    "description": "changed description"
+}
