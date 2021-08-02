@@ -2,6 +2,7 @@ const authRoute = require('./auth')
 const subscribesRoute = require('./subscribers')
 const usersRoute = require('./users')
 const staticPages = require('./StaticPages')
+const productRoute = require('./product')
 
 const routes = [
   {
@@ -13,6 +14,10 @@ const routes = [
   {
     path: '/',
     component: staticPages
+  },
+  {
+    path: '/products',
+    component: productRoute
   }
 ]
 
