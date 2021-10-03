@@ -5,7 +5,9 @@ const db = require('../database/mysql')
 
 router.get('/', (req, res) => {
   db.models.product
-    .findAll()
+    .findAll({
+      limit: 2
+    })
     .then((products) => {
       res.json(products)
     })

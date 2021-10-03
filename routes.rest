@@ -53,16 +53,16 @@ Content-Type: application/json
 ###
 GET {{baseURL}}/products HTTP/1.1
 ###
-GET {{baseURL}}/products/2 HTTP/1.1
+GET {{baseURL}}/products/3 HTTP/1.1
 ###
 POST {{baseURL}}/products HTTP/1.1
 Content-Type: application/json
 
 {
-    "name": "coke 1L my favorite"
+    "name": "_123favorite"
 }
 ###
-DELETE {{baseURL}}/products/2 HTTP/1.1
+DELETE {{baseURL}}/products/4 HTTP/1.1
 ###
 PATCH {{baseURL}}/products/1
 Content-Type: application/json
